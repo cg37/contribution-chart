@@ -10,17 +10,22 @@
     />
   </div>
   {{ dataRange }} -->
-  <div class="data">
-    <template v-for="(item, index) of weeksData" :key="index">
-      <WeekColumn :data="item" />
-    </template>
-  </div>
-  <div class="total" v-show="props.showTotalContribute">
-    {{ totalContributions }}
-  </div>
+  <template v-if="weeksData?.length">
+    <div class="data">
+      <template v-for="(item, index) of weeksData" :key="index">
+        <WeekColumn :data="item" />
+      </template>
+    </div>
+    <div class="total" v-show="props.showTotalContribute">
+      {{ totalContributions }}
+    </div>
+  </template>
+  <template v-if="!props.userName || !props.token">
+    need userName and token
+  </template>
 </template>
 <script lang="ts" setup name="ContributionChart">
-import { getContributionData } from "@/package/api/getContributionData";
+import { getContributionData } from "../api/getContributionData";
 import { computed, onMounted, ref } from "vue";
 import WeekColumn from "./WeekColumn.vue";
 import { AnyType } from "@/model/common";
@@ -29,6 +34,8 @@ const props = withDefaults(
   defineProps<{
     showTotalContribute?: boolean;
     selectData?: boolean;
+    token: string;
+    userName: string;
   }>(),
   {
     showTotalContribute: false,
@@ -48,7 +55,7 @@ const weeksData = computed(() => {
   );
 });
 onMounted(() => {
-  getContributionData()
+  getContributionData(props.userName, props.token)
     .then(
       (res) =>
         (contributionCalender.value =
@@ -77,6 +84,7 @@ onMounted(() => {
 }
 .data {
   width: 100%;
+  height: 100%;
   display: flex;
   padding: 12px 0;
   justify-content: center;

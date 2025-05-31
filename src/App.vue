@@ -4,7 +4,7 @@
   </div>
 </template>
 <script lang="ts" setup>
-import ContributionChart from "./package/components/ContributionChart.vue";
+import { ContributionChart } from "contribution-chart";
 </script>
 <style lang="scss" scoped>
 .chart-container {

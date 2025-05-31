@@ -1,14 +1,12 @@
 import { POST } from "./common";
-import { GITHUBTOKEN, GITHUBUSER } from "./env";
 import { AnyType } from "@/model/common";
-const TOKEN = GITHUBTOKEN;
-const USER = GITHUBUSER;
 
 interface IUserResponse {
   user: AnyType;
 }
 
-const query = `
+export const getContributionData = async (user: string, token: string) => {
+  const query = `
   query($userName: String!) {
     user(login: $userName) {
       contributionsCollection {
@@ -27,11 +25,10 @@ const query = `
   }
 `;
 
-const variables = {
-  userName: USER
-};
+  const variables = {
+    userName: user
+  };
 
-export const getContributionData = async () => {
   return POST({
     url: "https://api.github.com/graphql",
     data: {
@@ -40,7 +37,7 @@ export const getContributionData = async () => {
     },
     config: {
       headers: {
-        Authorization: `Bearer ${TOKEN}`
+        Authorization: `Bearer ${token}`
       }
     }
   })
