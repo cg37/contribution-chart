@@ -1,20 +1,20 @@
 {
   "compilerOptions": {
-      "target": "ESNext",
-      "useDefineForClassFields": true,
-      "module": "ESNext",
-      "moduleResolution": "node",
-      "strict": true,
-      "jsx": "preserve",
-      "sourceMap": true,
-      "resolveJsonModule": true,
-      "esModuleInterop": true,
-      "lib": ["ESNext", "DOM"],
-      "baseUrl": ".",
-      "paths": {
-          "@/*": ["src/*"]
-      },
+    "target": "ESNext",
+    "useDefineForClassFields": true,
+    "module": "ESNext",
+    "moduleResolution": "node",
+    "strict": true,
+    "jsx": "preserve",
+    "sourceMap": true,
+    "resolveJsonModule": true,
+    "esModuleInterop": true,
+    "lib": ["ESNext", "DOM"],
+    "baseUrl": ".",
+    "paths": {
+        "@/*": ["src/*"]
+    },
   },
   // "files": ["custom.d.ts"],
-  "include": ["src/**/*.ts", "src/**/*..d.ts", "src/**/*/tsx", "src/**/*.vue"]
+  "include": ["src/**/*.ts", "src/**/*..d.ts", "src/**/*/tsx", "src/**/*.vue", "src/api/env.js"]
 }
