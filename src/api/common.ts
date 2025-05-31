@@ -42,5 +42,8 @@ export async function POST<T = AnyType>({
   data,
   config
 }: RequestParamsInstance): ResponseType<T> {
-  return request.post(url, data, config);
+  return request
+    .post(url, data, config)
+    .then((res) => res.data)
+    .catch((err) => Promise.reject(err));
 }

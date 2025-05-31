@@ -1,7 +1,12 @@
 import { POST } from "./common";
 import { GITHUBTOKEN, GITHUBUSER } from "./env";
+import { AnyType } from "@/model/common";
 const TOKEN = GITHUBTOKEN;
 const USER = GITHUBUSER;
+
+interface IUserResponse {
+  user: AnyType;
+}
 
 const query = `
   query($userName: String!) {
@@ -39,6 +44,6 @@ export const getContributionData = async () => {
       }
     }
   })
-    .then((res) => res)
+    .then((res) => res?.data as IUserResponse)
     .catch((err) => Promise.reject(err));
 };
