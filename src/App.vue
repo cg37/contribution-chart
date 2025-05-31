@@ -1,17 +1,6 @@
 <template>
-  <div class="chart-container">
-    <ContributionChart :show-total-contribute="true" />
-  </div>
+  <ContributionChart :show-total-contribute="true" />
 </template>
 <script lang="ts" setup>
 import { ContributionChart } from "contribution-chart";
 </script>
-<style lang="scss" scoped>
-.chart-container {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-  gap: 12px;
-}
-</style>

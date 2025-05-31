@@ -65,6 +65,13 @@ onMounted(() => {
 });
 </script>
 <style lang="scss" scoped>
+.contribution-chart-contaier {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 12px;
+}
 .data-picker {
   display: flex;
   justify-content: flex-start;
@@ -88,7 +95,7 @@ onMounted(() => {
   display: flex;
   padding: 12px 0;
   justify-content: center;
-  align-items: center;
+  align-items: flex-start;
   gap: 2px;
   overflow: visible;
 }
