@@ -19,7 +19,7 @@ export type ResponeTypeValue<T> = {
   seuucess: boolean;
 };
 
-export function GET<T = AnyType>(
+export async function GET<T = AnyType>(
   url: string,
   opts?: AxiosRequestConfig
 ): Promise<T> {
@@ -37,7 +37,7 @@ export function GET<T = AnyType>(
     });
 }
 
-export function POST<T = AnyType>({
+export async function POST<T = AnyType>({
   url,
   data,
   config
