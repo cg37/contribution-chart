@@ -1,26 +1,41 @@
 <template>
-  <RouterLink to="/home">主页</RouterLink>
-  <RouterLink to="/about">关于</RouterLink>
-  <RouterView>
-    <div class="data">
-      {{ data }}
-    </div>
-  </RouterView>
+  <div class="">
+    {{ totalContributions }}
+  </div>
+  <div class="data">
+    <template v-for="(item, index) of weeksData" :key="index">
+      <WeekColumn :data="item" />
+    </template>
+  </div>
 </template>
 <script lang="ts" setup>
 import { getContributionData } from "@/api/getContributionData";
-import { onMounted, ref } from "vue";
-const data = ref();
+import { computed, onMounted, ref } from "vue";
+import WeekColumn from "./components/WeekColumn.vue";
+const contributionCalender = ref();
+const totalContributions = computed(() => {
+  return contributionCalender.value?.totalContributions;
+});
+const weeksData = computed(() => {
+  return contributionCalender.value?.weeks.map((it) => it.contributionDays);
+});
 onMounted(() => {
   getContributionData()
-    .then((res) => (data.value = res))
+    .then(
+      (res) =>
+        (contributionCalender.value =
+          res?.user?.contributionsCollection?.contributionCalendar)
+    )
     .catch((err) => console.log(err));
 });
 </script>
 <style lang="scss" scoped>
 .data {
-  border: 1px solid red;
   width: 100%;
-  height: 100px;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 3px;
 }
 </style>
