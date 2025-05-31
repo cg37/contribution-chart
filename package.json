@@ -1,19 +1,25 @@
 {
-  "name": "vue-template-project",
-  "private": true,
-  "version": "0.0.0",
+  "name": "contribution-chart",
+  "version": "0.0.5",
   "type": "module",
+  "description": "A Vue component to display GitHub contribution chart",
+  "main": "dist/contribution-chart.umd.js",
+  "module": "dist/contribution-chart.es.js",
+  "files": ["dist"],
   "scripts": {
     "dev": "vite",
-    "build": "vite build",
+    "build": "vite build && vite build --mode lit",
+    "prepublishOnly": "npm run build:lib",
+    "build:lib": "vite build --mode lib",
+    "build:app": "vite build",
     "preview": "vite preview",
     "lint": "eslint",
     "lint:fix": "eslint --fix",
     "prepare": "husky"
   },
-  "dependencies": {
+  "peerDependencies": {
     "axios": "^1.9.0",
-    "contribution-chart": "^0.0.1",
+    "contribution-chart": "^0.0.3",
     "element-plus": "^2.9.11",
     "eslint-plugin-prettier": "^5.4.0",
     "lodash": "^4.17.21",

@@ -8,12 +8,7 @@ export {}
 /* prettier-ignore */
 declare module 'vue' {
   export interface GlobalComponents {
-    ContributionChart: typeof import('./src/components/ContributionChart.vue')['default']
-    DayContribution: typeof import('./src/components/DayContribution.vue')['default']
-    ElDatePicker: typeof import('element-plus/es')['ElDatePicker']
-    HelloWorld: typeof import('./src/components/HelloWorld.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
-    WeekColumn: typeof import('./src/components/WeekColumn.vue')['default']
   }
 }
