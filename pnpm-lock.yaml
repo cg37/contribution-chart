@@ -20,6 +20,9 @@ importers:
       path:
         specifier: ^0.12.7
         version: 0.12.7
+      pnpm:
+        specifier: ^10.11.0
+        version: 10.11.0
       rimraf:
         specifier: ^6.0.1
         version: 6.0.1
@@ -1611,6 +1614,11 @@ packages:
 
   pkg-types@2.1.0:
     resolution: {integrity: sha512-wmJwA+8ihJixSoHKxZJRBQG1oY8Yr9pGLzRmSsNms0iNWyHHAlZCa7mmKiFR10YPZuz/2k169JiS/inOjBCZ2A==}
+
+  pnpm@10.11.0:
+    resolution: {integrity: sha512-ZUBYP0HMX2KOs9l3Ps7oAvT575kjzEW2mJD7R5kdSwkpZGlOw6T3OKQgyRijMwYsi5JdMS9C5PDCY+tgNVH5dw==}
+    engines: {node: '>=18.12'}
+    hasBin: true
 
   postcss-selector-parser@6.1.2:
     resolution: {integrity: sha512-Q8qQfPiZ+THO/3ZrOrO0cJJKfpYCagtMUkXbnEfmgUjwXg6z/WBeOyS9APBBPCTSiDV+s4SwQGu8yFsiMRIudg==}
@@ -3495,6 +3503,8 @@ snapshots:
       confbox: 0.2.2
       exsolve: 1.0.5
       pathe: 2.0.3
+
+  pnpm@10.11.0: {}
 
   postcss-selector-parser@6.1.2:
     dependencies:

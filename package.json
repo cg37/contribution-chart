@@ -16,6 +16,7 @@
     "eslint-plugin-prettier": "^5.4.0",
     "lodash": "^4.17.21",
     "path": "^0.12.7",
+    "pnpm": "^10.11.0",
     "rimraf": "^6.0.1",
     "scss": "^0.2.4",
     "typescript": "^5.8.3",
