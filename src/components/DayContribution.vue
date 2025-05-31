@@ -58,25 +58,13 @@ const backgroundColor = computed(() => {
   border-radius: 4px;
   font-size: 12px;
   pointer-events: none; /* 防止 tooltip 干扰鼠标事件 */
-
-  /* 添加小三角箭头 */
-  // &::after {
-  //   content: "";
-  //   position: absolute;
-  //   top: 100%;
-  //   left: 50%;
-  //   transform: translateX(-50%);
-  //   border-width: 5px;
-  //   border-style: solid;
-  //   border-color: #333 transparent transparent transparent;
-  // }
 }
 
 /* 方块样式 */
 .day-block {
   width: 10px;
   height: 10px;
-  border-radius: 2px;
+  border-radius: 3px;
   border: 1px solid rgb(45, 45, 52);
   background-color: rgb(9, 97, 173);
   transition: transform 0.2s;

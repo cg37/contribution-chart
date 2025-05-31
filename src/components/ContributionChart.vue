@@ -1,18 +1,15 @@
 <template>
-  <div class="data-picker">
+  <!-- <div class="data-picker">
     <el-date-picker
-      v-model="startDate"
-      type="date"
-      placeholder="start date"
-      size="small"
-    />
-    <el-date-picker
-      v-model="endDate"
-      type="date"
-      placeholder="end date"
-      size="small"
+      v-model="dataRange"
+      type="daterange"
+      range-separator="To"
+      start-placeholder="Start date"
+      end-placeholder="End date"
+      size="normal"
     />
   </div>
+  {{ dataRange }} -->
   <div class="data">
     <template v-for="(item, index) of weeksData" :key="index">
       <WeekColumn :data="item" />
@@ -38,8 +35,7 @@ const props = withDefaults(
   }
 );
 
-const startDate = ref();
-const endDate = ref();
+// const dataRange = ref();
 
 const contributionCalender = ref();
 const totalContributions = computed(() => {
@@ -78,11 +74,11 @@ onMounted(() => {
 }
 .data {
   width: 100%;
-  height: 100%;
   display: flex;
+  padding: 12px 0;
   justify-content: center;
   align-items: center;
-  gap: 3px;
-  overflow: hidden;
+  gap: 2px;
+  overflow: visible;
 }
 </style>
