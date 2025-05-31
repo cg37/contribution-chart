@@ -19,10 +19,11 @@
     {{ totalContributions }}
   </div>
 </template>
-<script lang="ts" setup>
-import { getContributionData } from "@/api/getContributionData";
+<script lang="ts" setup name="ContributionChart">
+import { getContributionData } from "@/package/api/getContributionData";
 import { computed, onMounted, ref } from "vue";
-import WeekColumn from "@/components/WeekColumn.vue";
+import WeekColumn from "./WeekColumn.vue";
+import { AnyType } from "@/model/common";
 
 const props = withDefaults(
   defineProps<{
@@ -42,7 +43,9 @@ const totalContributions = computed(() => {
   return contributionCalender.value?.totalContributions;
 });
 const weeksData = computed(() => {
-  return contributionCalender.value?.weeks.map((it) => it.contributionDays);
+  return contributionCalender.value?.weeks.map(
+    (it: AnyType) => it.contributionDays
+  );
 });
 onMounted(() => {
   getContributionData()

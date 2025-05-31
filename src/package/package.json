@@ -1,0 +1,12 @@
+{
+  "name": "contribution-chart",
+  "version": "0.0.1",
+  "description": "git贡献图",
+  "author": {
+    "name": "cg37"
+  },
+  "private": false,
+  "dependencies": {
+
+  }
+}
