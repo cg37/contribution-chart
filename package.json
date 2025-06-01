@@ -1,6 +1,6 @@
 {
   "name": "contribution-chart",
-  "version": "0.0.8",
+  "version": "0.0.9",
   "type": "module",
   "description": "A Vue component to display GitHub contribution chart",
   "main": "dist/contribution-chart.umd.js",
@@ -8,7 +8,7 @@
   "files": ["dist"],
   "scripts": {
     "dev": "vite",
-    "build": "vite build && vite build --mode lit",
+    "build": "vite build && vite build --mode lib",
     "prepublishOnly": "npm run build:lib",
     "build:lib": "vite build --mode lib",
     "build:app": "vite build",
