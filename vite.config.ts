@@ -17,7 +17,7 @@ export default defineConfig(({ mode }) => {
           fileName: (format) => `contribution-chart.${format}.js`
         },
         rollupOptions: {
-          external: ["vue", "axios"],
+          external: ["vue", "axios", "sass"],
           output: {
             globals: {
               vue: "Vue",
