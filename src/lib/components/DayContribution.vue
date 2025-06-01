@@ -38,7 +38,7 @@ const backgroundColor = computed(() => {
   }
 });
 </script>
-<style lang="scss" scoped>
+<style lang="css" scoped>
 .day-block-container {
   position: relative;
 }
@@ -68,10 +68,9 @@ const backgroundColor = computed(() => {
   border: 1px solid rgb(45, 45, 52);
   background-color: rgb(9, 97, 173);
   transition: transform 0.2s;
-
-  &:hover {
-    transform: scale(1.1);
-  }
+}
+.day-block:hover {
+  transform: scale(1.1);
 }
 
 /* 动画效果 - 进入和离开 */

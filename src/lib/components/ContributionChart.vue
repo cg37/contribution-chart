@@ -1,15 +1,4 @@
 <template>
-  <!-- <div class="data-picker">
-    <el-date-picker
-      v-model="dataRange"
-      type="daterange"
-      range-separator="To"
-      start-placeholder="Start date"
-      end-placeholder="End date"
-      size="normal"
-    />
-  </div>
-  {{ dataRange }} -->
   <div class="contribution-chart-contaier">
     <template v-if="weeksData?.length">
       <div class="calender-table">
@@ -66,7 +55,7 @@ onMounted(() => {
     .catch((err) => console.log(err));
 });
 </script>
-<style lang="scss" scoped>
+<style lang="css" scoped>
 .contribution-chart-contaier {
   display: flex;
   align-items: center;
@@ -86,9 +75,10 @@ onMounted(() => {
   padding: 6px 24.2px;
   font-size: 18px;
   user-select: none;
-  &:hover {
-    background-color: #333;
-  }
+  transition: background-color 0.3s ease;
+}
+.total:honver {
+  background-color: #333;
   transition: background-color 0.3s ease;
 }
 .calender-table {
