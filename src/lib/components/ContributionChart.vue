@@ -10,19 +10,21 @@
     />
   </div>
   {{ dataRange }} -->
-  <template v-if="weeksData?.length">
-    <div class="data">
-      <template v-for="(item, index) of weeksData" :key="index">
-        <WeekColumn :data="item" />
-      </template>
-    </div>
-    <div class="total" v-show="props.showTotalContribute">
-      {{ totalContributions }}
-    </div>
-  </template>
-  <template v-if="!props.userName || !props.token">
-    need userName and token
-  </template>
+  <div class="contribution-chart-contaier">
+    <template v-if="weeksData?.length">
+      <div class="calender-table">
+        <template v-for="(item, index) of weeksData" :key="index">
+          <WeekColumn :data="item" />
+        </template>
+      </div>
+      <div class="total" v-show="props.showTotalContribute">
+        {{ totalContributions }}
+      </div>
+    </template>
+    <template v-if="!props.userName || !props.token">
+      need userName and token
+    </template>
+  </div>
 </template>
 <script lang="ts" setup name="ContributionChart">
 import { getContributionData } from "../api/getContributionData";
@@ -89,9 +91,7 @@ onMounted(() => {
   }
   transition: background-color 0.3s ease;
 }
-.data {
-  width: 100%;
-  height: 100%;
+.calender-table {
   display: flex;
   padding: 12px 0;
   justify-content: center;
