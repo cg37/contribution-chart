@@ -1,16 +1,12 @@
 import { defineConfig } from "vite";
 import vue from "@vitejs/plugin-vue";
+import cssInjectedByJsPlugin from "vite-plugin-css-injected-by-js";
 import { resolve } from "path";
-import svgLoader from "vite-svg-loader";
-import AutoImport from "unplugin-auto-import/vite";
-import Components from "unplugin-vue-components/vite";
-import { ElementPlusResolver } from "unplugin-vue-components/resolvers";
 
-// https://vitejs.dev/config/
 export default defineConfig(({ mode }) => {
   if (mode === "lib") {
     return {
-      plugins: [vue()],
+      plugins: [vue(), cssInjectedByJsPlugin()],
       build: {
         lib: {
           entry: resolve(__dirname, "src/index.js"),
@@ -18,30 +14,18 @@ export default defineConfig(({ mode }) => {
           fileName: (format) => `contribution-chart.${format}.js`
         },
         rollupOptions: {
-          external: ["vue", "axios", "sass"],
+          external: ["vue"],
           output: {
             globals: {
-              vue: "Vue",
-              axios: "axios"
-            },
-            assetFileNames: "assets/[name].[ext]"
+              vue: "Vue"
+            }
           }
-        },
-        cssCodeSplit: true // Ensure CSS is split into separate files
+        }
       }
     };
   }
   return {
-    plugins: [
-      vue(),
-      svgLoader(),
-      AutoImport({
-        resolvers: [ElementPlusResolver()]
-      }),
-      Components({
-        resolvers: [ElementPlusResolver()]
-      })
-    ],
+    plugins: [vue()],
     server: {
       host: "0.0.0.0",
       port: 3031
