@@ -34,8 +34,6 @@ const props = withDefaults(
   }
 );
 
-// const dataRange = ref();
-
 const contributionCalender = ref();
 const totalContributions = computed(() => {
   return contributionCalender.value?.totalContributions;
@@ -55,13 +53,15 @@ onMounted(() => {
     .catch((err) => console.log(err));
 });
 </script>
-<style lang="css" scoped>
+<style scoped>
 .contribution-chart-contaier {
   display: flex;
   align-items: center;
   justify-content: center;
   flex-direction: column;
   gap: 12px;
+  width: 100%;
+  height: 100%;
 }
 .data-picker {
   display: flex;

@@ -38,7 +38,7 @@ const backgroundColor = computed(() => {
   }
 });
 </script>
-<style lang="css" scoped>
+<style scoped>
 .day-block-container {
   position: relative;
 }

@@ -7,5 +7,5 @@
 </template>
 <script lang="ts" setup>
 import { GITHUBUSER, GITHUBTOKEN } from "./env";
-import ContributionChart from "@/lib/components/ContributionChart.vue";
+import ContributionChart from "contribution-chart";
 </script>

@@ -13,7 +13,7 @@ importers:
         version: 1.9.0
       contribution-chart:
         specifier: ^0.0.3
-        version: 0.0.5(axios@1.9.0)(element-plus@2.9.11(vue@3.5.15(typescript@5.8.3)))(eslint-plugin-prettier@5.4.0(eslint-config-prettier@10.1.5(eslint@9.27.0(jiti@2.4.2)))(eslint@9.27.0(jiti@2.4.2))(prettier@3.5.3))(lodash@4.17.21)(path@0.12.7)(pnpm@10.11.0)(rimraf@6.0.1)(sass@1.89.1)(scss@0.2.4)(typescript@5.8.3)(vite-plugin-compression@0.5.1(vite@6.3.5(@types/node@22.15.23)(jiti@2.4.2)(sass@1.89.1)(yaml@2.8.0)))(vue-eslint-parser@10.1.3(eslint@9.27.0(jiti@2.4.2)))(vue-router@4.5.1(vue@3.5.15(typescript@5.8.3)))(vue-tsc@3.0.0-alpha.8(typescript@5.8.3))(vue@3.5.15(typescript@5.8.3))
+        version: file:contribution-chart-0.0.11.tgz(axios@1.9.0)(element-plus@2.9.11(vue@3.5.15(typescript@5.8.3)))(eslint-plugin-prettier@5.4.0(eslint-config-prettier@10.1.5(eslint@9.27.0(jiti@2.4.2)))(eslint@9.27.0(jiti@2.4.2))(prettier@3.5.3))(lodash@4.17.21)(path@0.12.7)(pnpm@10.11.0)(rimraf@6.0.1)(sass@1.89.1)(scss@0.2.4)(typescript@5.8.3)(vite-plugin-compression@0.5.1(vite@6.3.5(@types/node@22.15.23)(jiti@2.4.2)(sass@1.89.1)(yaml@2.8.0)))(vue-eslint-parser@10.1.3(eslint@9.27.0(jiti@2.4.2)))(vue-router@4.5.1(vue@3.5.15(typescript@5.8.3)))(vue-tsc@3.0.0-alpha.8(typescript@5.8.3))(vue@3.5.15(typescript@5.8.3))
       element-plus:
         specifier: ^2.9.11
         version: 2.9.11(vue@3.5.15(typescript@5.8.3))
@@ -32,12 +32,6 @@ importers:
       rimraf:
         specifier: ^6.0.1
         version: 6.0.1
-      sass:
-        specifier: ^1.89.1
-        version: 1.89.1
-      scss:
-        specifier: ^0.2.4
-        version: 0.2.4
       typescript:
         specifier: ^5.8.3
         version: 5.8.3
@@ -99,6 +93,12 @@ importers:
       lint-staged:
         specifier: ^16.0.0
         version: 16.1.0
+      sass:
+        specifier: ^1.89.1
+        version: 1.89.1
+      scss:
+        specifier: ^0.2.4
+        version: 0.2.4
       typescript-eslint:
         specifier: ^8.32.1
         version: 8.33.0(eslint@9.27.0(jiti@2.4.2))(typescript@5.8.3)
@@ -111,6 +111,9 @@ importers:
       vite:
         specifier: ^6.3.5
         version: 6.3.5(@types/node@22.15.23)(jiti@2.4.2)(sass@1.89.1)(yaml@2.8.0)
+      vite-plugin-css-injected-by-js:
+        specifier: ^3.5.2
+        version: 3.5.2(vite@6.3.5(@types/node@22.15.23)(jiti@2.4.2)(sass@1.89.1)(yaml@2.8.0))
       vite-svg-loader:
         specifier: ^5.1.0
         version: 5.1.0(vue@3.5.15(typescript@5.8.3))
@@ -988,8 +991,9 @@ packages:
   confusing-browser-globals@1.0.11:
     resolution: {integrity: sha512-JsPKdmh8ZkmnHxDk55FZ1TqVLvEQTvoByJZRN9jzI0UjxK/QgAmsphz7PGtqgPieQZ/CQcHWXCR7ATDNhGe+YA==}
 
-  contribution-chart@0.0.5:
-    resolution: {integrity: sha512-JT36FfGRMs1fZfdO4FlMkUzwxHaZkpL+p956vbmIS9ES4cWKQDDXd6nlhjK324+BYEGOz5yzBjzL1Q0N53288g==}
+  contribution-chart@file:contribution-chart-0.0.11.tgz:
+    resolution: {integrity: sha512-A9LD5cSOJO98ik7er7t34/MewQVgqOhW6cILKTSoXMbusKEws+Pd/2DYNtiyXXIZHTYdkIYKjvUNYj0bPSN+kg==, tarball: file:contribution-chart-0.0.11.tgz}
+    version: 0.0.11
     peerDependencies:
       axios: ^1.9.0
       element-plus: ^2.9.11
@@ -2091,6 +2095,11 @@ packages:
     peerDependencies:
       vite: '>=2.0.0'
 
+  vite-plugin-css-injected-by-js@3.5.2:
+    resolution: {integrity: sha512-2MpU/Y+SCZyWUB6ua3HbJCrgnF0KACAsmzOQt1UvRVJCGF6S8xdA3ZUhWcWdM9ivG4I5az8PnQmwwrkC2CAQrQ==}
+    peerDependencies:
+      vite: '>2.0.0-0'
+
   vite-svg-loader@5.1.0:
     resolution: {integrity: sha512-M/wqwtOEjgb956/+m5ZrYT/Iq6Hax0OakWbokj8+9PXOnB7b/4AxESHieEtnNEy7ZpjsjYW1/5nK8fATQMmRxw==}
     peerDependencies:
@@ -3079,7 +3088,7 @@ snapshots:
 
   confusing-browser-globals@1.0.11: {}
 
-  contribution-chart@0.0.5(axios@1.9.0)(element-plus@2.9.11(vue@3.5.15(typescript@5.8.3)))(eslint-plugin-prettier@5.4.0(eslint-config-prettier@10.1.5(eslint@9.27.0(jiti@2.4.2)))(eslint@9.27.0(jiti@2.4.2))(prettier@3.5.3))(lodash@4.17.21)(path@0.12.7)(pnpm@10.11.0)(rimraf@6.0.1)(sass@1.89.1)(scss@0.2.4)(typescript@5.8.3)(vite-plugin-compression@0.5.1(vite@6.3.5(@types/node@22.15.23)(jiti@2.4.2)(sass@1.89.1)(yaml@2.8.0)))(vue-eslint-parser@10.1.3(eslint@9.27.0(jiti@2.4.2)))(vue-router@4.5.1(vue@3.5.15(typescript@5.8.3)))(vue-tsc@3.0.0-alpha.8(typescript@5.8.3))(vue@3.5.15(typescript@5.8.3)):
+  contribution-chart@file:contribution-chart-0.0.11.tgz(axios@1.9.0)(element-plus@2.9.11(vue@3.5.15(typescript@5.8.3)))(eslint-plugin-prettier@5.4.0(eslint-config-prettier@10.1.5(eslint@9.27.0(jiti@2.4.2)))(eslint@9.27.0(jiti@2.4.2))(prettier@3.5.3))(lodash@4.17.21)(path@0.12.7)(pnpm@10.11.0)(rimraf@6.0.1)(sass@1.89.1)(scss@0.2.4)(typescript@5.8.3)(vite-plugin-compression@0.5.1(vite@6.3.5(@types/node@22.15.23)(jiti@2.4.2)(sass@1.89.1)(yaml@2.8.0)))(vue-eslint-parser@10.1.3(eslint@9.27.0(jiti@2.4.2)))(vue-router@4.5.1(vue@3.5.15(typescript@5.8.3)))(vue-tsc@3.0.0-alpha.8(typescript@5.8.3))(vue@3.5.15(typescript@5.8.3)):
     dependencies:
       axios: 1.9.0
       element-plus: 2.9.11(vue@3.5.15(typescript@5.8.3))
@@ -4184,6 +4193,10 @@ snapshots:
       vite: 6.3.5(@types/node@22.15.23)(jiti@2.4.2)(sass@1.89.1)(yaml@2.8.0)
     transitivePeerDependencies:
       - supports-color
+
+  vite-plugin-css-injected-by-js@3.5.2(vite@6.3.5(@types/node@22.15.23)(jiti@2.4.2)(sass@1.89.1)(yaml@2.8.0)):
+    dependencies:
+      vite: 6.3.5(@types/node@22.15.23)(jiti@2.4.2)(sass@1.89.1)(yaml@2.8.0)
 
   vite-svg-loader@5.1.0(vue@3.5.15(typescript@5.8.3)):
     dependencies:

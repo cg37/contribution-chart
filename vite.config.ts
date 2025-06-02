@@ -5,6 +5,7 @@ import svgLoader from "vite-svg-loader";
 import AutoImport from "unplugin-auto-import/vite";
 import Components from "unplugin-vue-components/vite";
 import { ElementPlusResolver } from "unplugin-vue-components/resolvers";
+
 // https://vitejs.dev/config/
 export default defineConfig(({ mode }) => {
   if (mode === "lib") {
@@ -22,9 +23,11 @@ export default defineConfig(({ mode }) => {
             globals: {
               vue: "Vue",
               axios: "axios"
-            }
+            },
+            assetFileNames: "assets/[name].[ext]"
           }
-        }
+        },
+        cssCodeSplit: true // Ensure CSS is split into separate files
       }
     };
   }

@@ -16,7 +16,7 @@ const props = defineProps<{
   data: IDayContribute[];
 }>();
 </script>
-<style lang="css" scoped>
+<style scoped>
 .week-column {
   display: flex;
   flex-direction: column;
