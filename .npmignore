@@ -8,3 +8,8 @@ dist/assets/
 *.local
 .DS_Store
 .gitignore
+commitlint.config.js
+eslint.config.js
+prettier.config.js
+.husky/
+.vscode/
