@@ -1,18 +1,36 @@
-# Vue 3 + TypeScript + Axios
-contribution-chart
+# contribution-chart
+## installation
 ```
-import "contribution-chart/dist/assets/index.css";
+pnpm i contribution-chart
+```
+## Import
+```
 import ContributionChart from "contribution-chart";
 ```
 
-## 使用方式
+## Use
+``` vue
+<template>
+  <ContributionChart
+    :show-total-contribute="true"
+    :user-name="GITHUBUSER"
+    :token="GITHUBTOKEN"
+  />
+</template>
+<script lang="ts" setup>
+import { GITHUBUSER, GITHUBTOKEN } from "./env";
+import ContributionChart from "contribution-chart";
+</script>
+
 ```
-<ContributionChart
-  :show-total-contribute="true"
-  :user-name="GITHUBUSER"
-  :token="GITHUBTOKEN"
-/>
-```
-`token` 需要去官网申请
-`user-name` 为gihub账户名称  
-待更新
+|props|usage|default value|type|
+|---|---|---|---|
+|showTotalContribute|show your total contribution|false|boolean
+###  `token`
+Get your github token from this [GitHub Doc](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens)
+
+### `user-name`
+your GitHub user name
+
+## Warning
+DO NOT put your GitHub Token into your repository, for me, write it an independent file and add it into `.gitignore`
