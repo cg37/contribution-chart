@@ -20,19 +20,17 @@ import { getContributionData } from "../api/getContributionData";
 import { computed, onMounted, ref } from "vue";
 import WeekColumn from "./WeekColumn.vue";
 import { AnyType } from "@/model/common";
+export interface ContributionChartProps {
+  showTotalContribute?: boolean;
+  selectData?: boolean;
+  token: string;
+  userName: string;
+}
 
-const props = withDefaults(
-  defineProps<{
-    showTotalContribute?: boolean;
-    selectData?: boolean;
-    token: string;
-    userName: string;
-  }>(),
-  {
-    showTotalContribute: false,
-    selectData: false
-  }
-);
+const props = withDefaults(defineProps<ContributionChartProps>(), {
+  showTotalContribute: false,
+  selectData: false
+});
 
 const contributionCalender = ref();
 const totalContributions = computed(() => {

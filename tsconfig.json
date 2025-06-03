@@ -15,6 +15,5 @@
         "@/*": ["src/*"]
     },
   },
-  // "files": ["custom.d.ts"],
-  "include": ["src/**/*.ts", "src/**/*..d.ts", "src/**/*/tsx", "src/**/*.vue", "src/package/api/env.js"]
+  "include": ["src/**/*.ts", "src/**/*.d.ts", "src/**/*.tsx", "src/**/*.vue"]
 }
