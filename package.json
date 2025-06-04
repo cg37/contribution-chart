@@ -21,14 +21,6 @@
     "lint:fix": "eslint --fix",
     "prepare": "husky"
   },
-  "Dependencies ": {
-    "axios": "^1.9.0",
-    "sass": "^1.89.1",
-    "scss": "^0.2.4",
-    "typescript": "^5.8.3",
-    "vue": "^3.5.14",
-    "vue-tsc": "3.0.0-alpha.8"
-  },
   "peerDependencies": {
     "axios": "^1.9.0",
     "path": "^0.12.7",
@@ -84,7 +76,11 @@
     "component"
   ],
   "dependencies": {
-    "contribution-chart": "^0.0.15",
-    "eslint-plugin-prettier": "^5.4.1"
+    "axios": "^1.9.0",
+    "sass": "^1.89.1",
+    "scss": "^0.2.4",
+    "typescript": "^5.8.3",
+    "vue": "^3.5.14",
+    "vue-tsc": "3.0.0-alpha.8"
   }
 }

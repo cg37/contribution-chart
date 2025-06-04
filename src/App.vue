@@ -7,5 +7,5 @@
 </template>
 <script lang="ts" setup>
 import { GITHUBUSER, GITHUBTOKEN } from "./env";
-import ContributionChart from "contribution-chart";
+import ContributionChart from "@/lib/components/index";
 </script>
