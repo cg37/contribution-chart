@@ -1,6 +1,6 @@
 {
   "name": "contribution-chart",
-  "version": "0.0.18",
+  "version": "0.0.19",
   "type": "module",
   "description": "A Vue component to display GitHub contribution chart",
   "main": "dist/contribution-chart.umd.js",
