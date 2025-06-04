@@ -29,7 +29,8 @@
     "scss": "^0.2.4",
     "typescript": "^5.8.3",
     "vue": "^3.5.14",
-    "vue-tsc": "3.0.0-alpha.8"
+    "vue-tsc": "3.0.0-alpha.8",
+    "eslint-plugin-prettier": "^5.4.1"
   },
   "devDependencies": {
     "@commitlint/cli": "^19.8.1",
@@ -76,13 +77,6 @@
     "component"
   ],
   "dependencies": {
-    "axios": "^1.9.0",
-    "contribution-chart": "^0.0.17",
-    "eslint-plugin-prettier": "^5.4.1",
-    "sass": "^1.89.1",
-    "scss": "^0.2.4",
-    "typescript": "^5.8.3",
-    "vue": "^3.5.14",
-    "vue-tsc": "3.0.0-alpha.8"
+    "axios": "^1.9.0"
   }
 }
