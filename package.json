@@ -6,6 +6,7 @@
   "main": "dist/contribution-chart.umd.js",
   "module": "dist/contribution-chart.es.js",
   "types": "types/index.d.ts",
+  "license": "MIT",
   "files": [
     "dist",
     "types"

@@ -1,4 +1,8 @@
 <template>
+  <!-- 
+    Copyright (c) 2023 Your Name
+    Licensed under the MIT License.
+  -->
   <div class="contribution-chart-contaier">
     <template v-if="weeksData?.length">
       <div class="calender-table">

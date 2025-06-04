@@ -34,3 +34,5 @@ your GitHub user name
 
 ## Warning
 DO NOT put your GitHub Token into your repository, for me, write it an independent file and add it into `.gitignore`
+
+# Any suggestion contact <CG37@outlook.com>
