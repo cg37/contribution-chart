@@ -11,6 +11,14 @@
     "dist",
     "types"
   ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/cg37/contribution-chart"
+  },
+  "bugs": {
+    "url": "https://github.com/cg37/contribution-chart/issues",
+    "email": "cg37@outlook.com"
+  },
   "scripts": {
     "dev": "vite",
     "build": "vite build && vite build --mode lib",
