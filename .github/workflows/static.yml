@@ -2,7 +2,7 @@ name: Deploy Vue 3 to GitHub Pages
 
 on:
   push:
-    branches: ["main"]  # 通常现代项目使用 main 而非 master
+    branches: ["master"]
   workflow_dispatch:
 
 permissions:
@@ -15,27 +15,31 @@ concurrency:
   cancel-in-progress: false
 
 jobs:
-  build-and-deploy:
+  build_and_deploy:
+    name: build and deploy job
     runs-on: ubuntu-latest
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
     
     steps:
-      - name: Checkout code
+      - name: Checkout
         uses: actions/checkout@v4
-
+      - name: Setup pnpm
+        uses: pnpm/actions-setup@v2
+        with:
+          version: 10
       - name: Set up Node.js
         uses: actions/setup-node@v4
         with:
           node-version: '20'  # 使用当前LTS版本
-          cache: 'npm'
+          cache: 'pnpm'
 
       - name: Install dependencies
-        run: npm install
+        run: pnpm install
 
-      - name: Build Vue project
-        run: npm run build
+      - name: Build 
+        run: pnpm build
 
       - name: Configure GitHub Pages
         uses: actions/configure-pages@v5
