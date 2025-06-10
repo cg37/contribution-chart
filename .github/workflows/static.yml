@@ -2,7 +2,7 @@ name: Deploy Vue 3 to GitHub Pages
 
 on:
   push:
-    branches: ["master"]
+    branches: ["cg37-patch-1"]
   workflow_dispatch:
 
 permissions:
