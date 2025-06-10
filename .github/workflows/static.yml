@@ -42,7 +42,7 @@ jobs:
         env: 
           TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          cat > ./env.ts <<EOF
+          cat > src/env.ts <<EOF
           // Auto-generated - do not commit
           export const config = {
             token: '$TOKEN',
@@ -66,5 +66,5 @@ jobs:
         id: deployment
         uses: actions/deploy-pages@v4
       - name: clean up
-        run: rm ./env.ts
+        run: rm src/env.ts
         if: always()
