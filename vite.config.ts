@@ -7,6 +7,7 @@ export default defineConfig(({ mode }) => {
   if (mode === "lib") {
     return {
       plugins: [vue(), cssInjectedByJsPlugin()],
+      base: "./",
       build: {
         lib: {
           entry: resolve(__dirname, "src/index.js"),

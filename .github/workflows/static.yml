@@ -53,6 +53,8 @@ jobs:
 
       - name: Build 
         run: pnpm build
+        env: 
+          BASE_URL: './'
 
       - name: Configure GitHub Pages
         uses: actions/configure-pages@v5
@@ -61,7 +63,7 @@ jobs:
         uses: actions/upload-pages-artifact@v3
         with:
           # 上传构建后的 dist 目录
-          path: 'dist/*'  # Vue 默认构建输出目录
+          path: 'dist/'  # Vue 默认构建输出目录
 
       - name: Deploy to GitHub Pages
         id: deployment
