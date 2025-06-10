@@ -21,7 +21,7 @@
   },
   "scripts": {
     "dev": "vite",
-    "build": "vite build && vite build --mode lib",
+    "build": "vite build",
     "prepublishOnly": "npm run build:lib",
     "build:lib": "vite build --mode lib",
     "build:app": "vite build",
