@@ -1,11 +1,11 @@
 <template>
   <ContributionChart
     :show-total-contribute="false"
-    :user-name="GITHUBUSER"
-    :token="GITHUBTOKEN"
+    :user-name="config.token"
+    :token="config.username"
   />
 </template>
 <script lang="ts" setup>
-import { GITHUBUSER, GITHUBTOKEN } from "./env";
+import config from "./env";
 import ContributionChart from "@/lib/components/index";
 </script>
