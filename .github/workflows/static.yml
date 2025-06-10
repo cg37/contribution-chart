@@ -44,10 +44,11 @@ jobs:
         run: |
           cat > src/env.ts <<EOF
           // Auto-generated - do not commit
-          export const config = {
+          const config = {
             token: '$TOKEN',
             username: 'cg37'
           }
+          export default config;
           EOF
 
       - name: Build 
