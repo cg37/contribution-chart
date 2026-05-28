@@ -23,12 +23,12 @@
       <p>No contributions yet. Start committing!</p>
     </div>
 
-    <!-- Missing credentials -->
-    <div
-      v-else-if="!props.userName || !props.token"
-      class="missing-credentials"
-    >
-      <p>GitHub username and token are required.</p>
+    <!-- No data source configured -->
+    <div v-else-if="!hasDataSource" class="missing-credentials">
+      <p>
+        Provide one of: <code>data</code>, <code>dataFetcher</code>, or
+        <code>userName</code> + <code>token</code>.
+      </p>
     </div>
 
     <!-- Data loaded -->
@@ -51,26 +51,35 @@ import { getContributionData } from "../api/getContributionData";
 import { computed, onMounted, provide, ref } from "vue";
 import WeekColumn from "./WeekColumn.vue";
 
-export interface ContributionChartProps {
-  showTotalContribute?: boolean;
-  colors?: string[];
-  token: string;
-  userName: string;
-}
-
-interface ContributionDay {
+export interface ContributionDay {
   contributionCount: number;
   date: string;
   weekday: number;
 }
 
-interface ContributionWeek {
+export interface ContributionWeek {
   contributionDays: ContributionDay[];
 }
 
-interface ContributionCalendar {
+export interface ContributionCalendar {
   totalContributions: number;
   weeks: ContributionWeek[];
+}
+
+export interface ContributionChartProps {
+  showTotalContribute?: boolean;
+  colors?: string[];
+
+  // Data sources — pick ONE.
+  // Mode 1: pre-fetched static data (most secure — fetch on your backend)
+  data?: ContributionCalendar;
+
+  // Mode 2: custom async fetcher (secure — token stays on your backend)
+  dataFetcher?: () => Promise<ContributionCalendar>;
+
+  // Mode 3: direct GitHub API (convenient — use a fine-grained, read-only token)
+  userName?: string;
+  token?: string;
 }
 
 const props = withDefaults(defineProps<ContributionChartProps>(), {
@@ -89,6 +98,14 @@ const contributionCalendar = ref<ContributionCalendar | null>(null);
 const loading = ref(false);
 const error = ref("");
 
+const hasDataSource = computed(() => {
+  return (
+    props.data != null ||
+    props.dataFetcher != null ||
+    (props.userName && props.token)
+  );
+});
+
 const totalContributions = computed(() => {
   return contributionCalendar.value?.totalContributions ?? 0;
 });
@@ -101,11 +118,24 @@ async function fetchData() {
   loading.value = true;
   error.value = "";
   try {
-    const res = await getContributionData(props.userName, props.token);
-    contributionCalendar.value =
-      res?.user?.contributionsCollection?.contributionCalendar ?? null;
-    if (contributionCalendar.value) {
-      emit("loaded", contributionCalendar.value);
+    let calendar: ContributionCalendar | null = null;
+
+    if (props.data) {
+      // Mode 1: use pre-fetched static data
+      calendar = props.data;
+    } else if (props.dataFetcher) {
+      // Mode 2: call user-provided fetcher
+      calendar = await props.dataFetcher();
+    } else if (props.userName && props.token) {
+      // Mode 3: call GitHub API directly
+      const res = await getContributionData(props.userName, props.token);
+      calendar =
+        res?.user?.contributionsCollection?.contributionCalendar ?? null;
+    }
+
+    contributionCalendar.value = calendar;
+    if (calendar) {
+      emit("loaded", calendar);
     }
   } catch (err: unknown) {
     const message =
@@ -118,7 +148,7 @@ async function fetchData() {
 }
 
 onMounted(() => {
-  if (props.userName && props.token) {
+  if (hasDataSource.value) {
     fetchData();
   }
 });
@@ -201,11 +231,19 @@ onMounted(() => {
   font-size: 14px;
 }
 
-/* Missing credentials */
+/* Missing data source */
 .missing-credentials {
   padding: 24px;
   color: #888;
   font-size: 14px;
+  text-align: center;
+  line-height: 1.6;
+}
+.missing-credentials code {
+  background: #333;
+  padding: 1px 5px;
+  border-radius: 3px;
+  font-size: 13px;
 }
 
 .total {
