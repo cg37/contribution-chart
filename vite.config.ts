@@ -10,7 +10,7 @@ export default defineConfig(({ mode }) => {
       base: "./",
       build: {
         lib: {
-          entry: resolve(__dirname, "src/index.js"),
+          entry: resolve(__dirname, "src/index.ts"),
           name: "ContributionChart",
           fileName: (format) => `contribution-chart.${format}.js`
         },

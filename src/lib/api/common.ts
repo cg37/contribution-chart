@@ -2,7 +2,7 @@ import type { AnyType } from "@/model/common.ts";
 import type { AxiosRequestConfig } from "axios";
 import request from "./instance";
 
-type ResponseType<T> = Promise<ResponeTypeValue<T>>;
+type ResponseType<T> = Promise<ResponseTypeValue<T>>;
 
 interface RequestParamsInstance {
   url: string;
@@ -10,13 +10,13 @@ interface RequestParamsInstance {
   config?: Record<string, AnyType>;
 }
 
-export type ResponeTypeValue<T> = {
+export type ResponseTypeValue<T> = {
   metadata: AnyType;
   dataset: AnyType;
   data: T;
   code: string;
   message: string;
-  seuucess: boolean;
+  success: boolean;
 };
 
 export async function GET<T = AnyType>(

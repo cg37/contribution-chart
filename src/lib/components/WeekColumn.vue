@@ -1,17 +1,14 @@
 <template>
   <div class="week-column">
     <template v-for="(item, index) of props.data" :key="index">
-      <DayContribution
-        :contribution-count="item.contributionCount"
-        :date="item.date"
-        :weekday="item.weekday"
-      />
+      <DayContribution v-bind="item" />
     </template>
   </div>
 </template>
 <script lang="ts" setup>
-import { IDayContribute } from "@/model/Interface";
+import type { IDayContribute } from "@/model/Interface";
 import DayContribution from "./DayContribution.vue";
+
 const props = defineProps<{
   data: IDayContribute[];
 }>();

@@ -1,8 +1,8 @@
 <template>
   <ContributionChart
     :show-total-contribute="false"
-    :user-name="config.token"
-    :token="config.username"
+    :user-name="config.username"
+    :token="config.token"
   />
 </template>
 <script lang="ts" setup>

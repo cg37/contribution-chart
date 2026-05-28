@@ -3,14 +3,14 @@ declare module "contribution-chart" {
   import { DefineComponent } from "vue";
 
   export const ContributionChart: DefineComponent<{
-    /** GitHub 用户名 */
+    /** GitHub username */
     userName: string;
-    /** GitHub 访问令牌 */
+    /** GitHub personal access token */
     token: string;
-    /** 是否显示总贡献数 */
+    /** Whether to show total contribution count */
     showTotalContribute?: boolean;
-    /** 是否启用日期选择 */
-    selectData?: boolean;
+    /** Custom 5-color gradient from zero to high contributions */
+    colors?: string[];
   }>;
 
   export default ContributionChart;
